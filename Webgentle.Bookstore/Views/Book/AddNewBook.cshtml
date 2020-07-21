@@ -2,29 +2,34 @@
     ViewData["Title"] = "Add a New Book";
 }
 
-@model BookModel 
+@model BookModel
 
-    <div class="container">
-        <h3 class="display-4">Add New Book</h3>
-        <hr />
-        @if (ViewBag.IsSuccess == true)
-        {
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Congratulations</strong>
-                You have added a new book successfully. <br /> Click <a asp-controller="Book" asp-action="GetBook" asp-route-id="@ViewBag.BookId">here</a> to view details
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        }
+<div class="container">
+    <h3 class="display-4">Add New Book</h3>
+    <hr />
+    @if (ViewBag.IsSuccess == true)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Congratulations</strong>
+            You have added a new book successfully. <br /> Click <a asp-controller="Book" asp-action="GetBook" asp-route-id="@ViewBag.BookId">here</a> to view details
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
 
     <form method="post" asp-action="AddNewBook">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
         <div class="form-group">
-            <label asp-for="MyField"></label>
-            <input asp-for="MyField" class="form-control" />
-            <span asp-validation-for="MyField" class="text-danger"></span>
+            <label asp-for="Language"></label>
+            <select asp-for="Language" class="form-control" >
+                <option value="">Please choose a book language</option>
+                <option>English</option>
+                <option>French</option>
+                <option>Spanish</option>
+            </select>
+            <span asp-validation-for="Language" class="text-danger"></span>
         </div>
 
         <div class="form-group">
@@ -54,4 +59,4 @@
             <input type="submit" value="Add book" class="btn btn-primary" />
         </div>
     </form>
-    </div>
+</div>

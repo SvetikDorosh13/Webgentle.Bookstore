@@ -9,9 +9,6 @@ namespace Webgentle.Bookstore.Models
 {
     public class BookModel
     {
-        [DataType(DataType.Date)]
-        [Display(Name = "Choose date")]
-        public string MyField { get; set; }
         public int Id { get; set; }
         [StringLength(100, MinimumLength = 5)]
         [Required(ErrorMessage ="Please enter the title of your book")]
@@ -21,9 +18,10 @@ namespace Webgentle.Bookstore.Models
         [StringLength(500)]
         public string Description { get; set; }
         public string Category { get; set; }
+        [Required(ErrorMessage = "Please select a language for the book")]
         public string Language { get; set; }
         [Required(ErrorMessage = "Please enter total pages")]
-        [Display(Name = "Total Pages")]
+        [Display(Name = "Total Pages of book")]
         public int? TotalPages { get; set; }
     }
 }

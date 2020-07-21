@@ -37,9 +37,14 @@ namespace Webgentle.Bookstore.Controllers
 
         public ViewResult AddNewBook(bool isSuccess = false, int bookId = 0)
         {
+            var model = new BookModel()
+            {
+                Language = "English"
+            };
+            
             ViewBag.IsSuccess = isSuccess;
             ViewBag.BookId = bookId;
-            return View();
+            return View(model);
         }
 
         [HttpPost]

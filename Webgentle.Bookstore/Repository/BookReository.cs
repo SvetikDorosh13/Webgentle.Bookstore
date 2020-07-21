@@ -26,6 +26,7 @@ namespace Webgentle.Bookstore.Repository
                 Category = model.Category,
                 Description = model.Description,
                 Title = model.Title,
+                Language = model.Language,
                 TotalPages = model.TotalPages.HasValue ? model.TotalPages.Value : 0,
                 UpdaedOn = DateTime.UtcNow
             };
