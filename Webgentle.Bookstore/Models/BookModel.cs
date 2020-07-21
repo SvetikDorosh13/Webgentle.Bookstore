@@ -9,13 +9,16 @@ namespace Webgentle.Bookstore.Models
 {
     public class BookModel
     {
+        [DataType(DataType.Date)]
+        [Display(Name = "Choose date")]
+        public string MyField { get; set; }
         public int Id { get; set; }
         [StringLength(100, MinimumLength = 5)]
         [Required(ErrorMessage ="Please enter the title of your book")]
         public string Title { get; set; }
         [Required(ErrorMessage = "Please enter the author name")]
         public string Author { get; set; }
-        [StringLength(500, MinimumLength = 30)]
+        [StringLength(500)]
         public string Description { get; set; }
         public string Category { get; set; }
         public string Language { get; set; }

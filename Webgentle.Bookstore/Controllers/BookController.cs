@@ -54,6 +54,8 @@ namespace Webgentle.Bookstore.Controllers
                 }
             }
 
+            ModelState.AddModelError("", "This is my custom error message");
+
             return View();
         }
     }
