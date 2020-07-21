@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
+using Webgentle.Bookstore.Data;
 
 namespace Webgentle.Bookstore
 {
@@ -18,6 +20,12 @@ namespace Webgentle.Bookstore
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<BookStoreContext>(options => 
+                options.UseSqlServer("server=(localdb)\\MSSQLLocalDB;database=BookStore;Trusted_Connection=true"));
+            //"Server=.;Database=BookStore; Integrated Security=True;"
+            //server=(localdb)\\MSSQLLocalDB;database=BookStore;Trusted_Connection=true
+            //.\SQLEXPRESS;initial catalog=Sample;integrated security=True;
+
             services.AddControllersWithViews();
 
 #if DEBUG
