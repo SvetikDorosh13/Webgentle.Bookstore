@@ -25,9 +25,9 @@
             <label asp-for="Language"></label>
             <select asp-for="Language" class="form-control" >
                 <option value="">Please choose a book language</option>
-                <option>English</option>
-                <option>French</option>
-                <option>Spanish</option>
+                <option value="English">English (global)</option>
+                <option value="French">French (cute)</option>
+                <option value="Spenish">Spanish (easy)</option>
             </select>
             <span asp-validation-for="Language" class="text-danger"></span>
         </div>
