@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Webgentle.Bookstore.Migrations
 {
@@ -17,7 +18,9 @@ namespace Webgentle.Bookstore.Migrations
                     Description = table.Column<string>(nullable: true),
                     Category = table.Column<string>(nullable: true),
                     Language = table.Column<string>(nullable: true),
-                    TotalPages = table.Column<int>(nullable: false)
+                    TotalPages = table.Column<int>(nullable: false),
+                    CreatedOn = table.Column<DateTime>(nullable: true),
+                    UpdaedOn = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {

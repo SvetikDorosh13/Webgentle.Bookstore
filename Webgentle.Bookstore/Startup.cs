@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Webgentle.Bookstore.Data;
+using Webgentle.Bookstore.Repository;
 
 namespace Webgentle.Bookstore
 {
@@ -31,6 +32,7 @@ namespace Webgentle.Bookstore
 #if DEBUG
             services.AddRazorPages().AddRazorRuntimeCompilation();
 #endif
+            services.AddScoped<BookReository, BookReository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
