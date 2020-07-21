@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using Webgentle.Bookstore.Models;
 using Webgentle.Bookstore.Repository;
 
@@ -40,10 +41,23 @@ namespace Webgentle.Bookstore.Controllers
         {
             var model = new BookModel()
             {
-                Language = "1"
+               // Language = "1"
             };
 
-            ViewBag.Language = new SelectList(GetLanguage(), "Id", "Text");
+            //ViewBag.Language = new SelectList(GetLanguage(), "Id", "Text");
+            //ViewBag.Language = GetLanguage().Select(x => new SelectListItem()
+            //{
+            //    Text = x.Text,
+            //    Value = x.Id.ToString()
+            //}).ToList();
+
+            ViewBag.Language = new List<SelectListItem>()
+            {
+                new SelectListItem(){Text="English", Value="1"},
+                new SelectListItem(){Text="French", Value="2", Selected=true},
+                new SelectListItem(){Text="Dutch", Value="3", Disabled = true},
+                new SelectListItem(){Text="Spanish", Value="4"}                
+            };
 
             ViewBag.IsSuccess = isSuccess;
             ViewBag.BookId = bookId;
@@ -62,7 +76,7 @@ namespace Webgentle.Bookstore.Controllers
                 }
             }
 
-            ViewBag.Language = new SelectList(GetLanguage(), "Id", "Text");
+            //ViewBag.Language = new SelectList(GetLanguage(), "Id", "Text");
 
             //ModelState.AddModelError("", "This is my custom error message");
             //ModelState.AddModelError("", "This is my second custom error message");
