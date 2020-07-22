@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using Webgentle.Bookstore.Enums;
 
 namespace Webgentle.Bookstore.Models
 {
@@ -25,8 +26,8 @@ namespace Webgentle.Bookstore.Models
         [Required(ErrorMessage = "Please select a language for your book")]
         public string Language { get; set; }
 
-        [Required(ErrorMessage = "Please select a languages for your book")]
-        public List<string> MultiLanguage { get; set; }
+        [Required(ErrorMessage = "Please select a language for your book")]
+        public LanguageEnum LanguageEnum { get; set; }
        
         [Required(ErrorMessage = "Please enter total pages")]
         [Display(Name = "Total Pages of book")]
